@@ -1,0 +1,44 @@
+Download and install ActivePerl.  ActivePerl is a fabulous product
+that lets you run Perl programs on the windows operating system.
+Several versions that are tested and work with our products are
+mirrored at http://www.peregrinehw.com/downloads under the perl
+section but the latest and greatest is always available at
+http://www.activestate.com/.
+
+
+Download and install Winzip.  Winzip is a wonderful product and a
+downright necessity for a windows box.  A fully-functional 21-Day
+evaluation version is available and is usually mirrored at
+http://www.peregrinehw.com/downloads/ under the perl section.
+
+
+Create a C:\UTILS\ directory and add it to your PATH for Windows.  In
+Windows 98, you edit the path by editing the file c:\autoexec.bat and
+adding (or modifying) a line to contain:
+
+SET PATH=%PATH%;C:\UTILS
+
+In Windows 2000, you go to Control Panel and double-click on System.
+Select the Advanced Tab and click on Environmental Variables.  Under
+System variables, highlight the PATH entry and click on edit.  Add
+";C\UTILS" to the end of the entry and click OK.
+
+
+Download and uncompress the latest WRECK MP3 tar file
+
+
+The WRECK MP3 tar file has a directory called contrib.  In the windows
+directory underneath contry, there are several programs including
+Lame-an MP3 encoder/decoder, Sox-an audio conversion toolm and Nmake-a
+windows equivalent to make for install Perl modules.  Uncompress them
+and place them in the C:\UTILS\ directory created above.
+
+
+Uncompress the MP3::Info files and Install this module by running the
+following commands at a DOS prompt: cd <path-to-MP3-Info-1.01 files>
+     perl Makefile.PL
+     nmake
+     nmake install
+
+
+

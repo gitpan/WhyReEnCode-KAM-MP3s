@@ -1,0 +1,5 @@
+Revision history for Perl extension WRECK MP3s.
+
+1.23  Wed Feb 12 2003 - First Public Release
+1.24  Wed Feb 12 2003 - Minor Update to fix a status display while looping through MP3s to
+                        determine which files need re-encoding

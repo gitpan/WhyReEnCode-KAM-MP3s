@@ -1,0 +1,132 @@
+WRECK MP3's
+===========
+
+WhyReEnCode-KAM-MP3s was written to create standard, Constant Bitrate (CBR) 
+MP3's from mono and Variable Bitrate (VBR) MP3 files.  As the name eludes,
+THIS PROCESS WILL DEGRADE THE QUALITY OF YOUR MP3's AND SHOULD NOT BE DONE 
+UNLESS THERE IS A REASON!
+
+For myself, we were using a very nice, high-end DJ software that couldn't 
+support mono MP3s.  As a programmer, I can appreciate the simplicity of 
+programming an MP3 engine to handle only stereo, CBR files .  So rather
+than beating my head against a brick and saying Why Why Why, I focused 
+on identifying and reencoding the problematic files.
+
+This proved harder than it might seem because:
+
+	A) Who in their right mind would change a mono mp3 to stereo 
+	   purposely?
+
+	B) I didn't want to re-tag all the files with an ID3 tag
+
+	C) I wanted the solution to work in Windows and Linux because I 
+	   would use it in Linux but most people wouldn't.
+
+After many iterations, I focused on a batch file creation utility that
+would use standard command-line tools.  This allowed a run through to see
+how bad everything was and then you can run the batch and walk away from
+the computer for a day or whatever it takes.
+
+
+INSTALLATION
+
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+Under Windows 2000, the ActivePerl and nmake15 in the contrib directory have
+been tested and confirmed working.  
+
+
+DEPENDENCIES
+
+This program is written using Perl.  For Windows, this program has been tested
+with ActivePerl-5.6.1.633-MSWin32-x86.msi under Windows 2000 with SOME testing
+on Windows 98SE.
+
+The current most tested version of ActivePerl is available at:
+http://www.peregrinehw.com/downloads/ under the Perl Modules and Programs.
+
+This module requires these other modules and libraries:
+
+  MP3::Info
+
+This module also requires
+  
+  sox
+  lame for Windows and notlame for Linux
+
+Versions of the above that are tested and confirmed to work are included in the
+contrib directories for both Linux and windows.  
+
+*NOTE*: Lame.exe/notlame and Sox.exe/sox *must* be in the PATH!! 
+
+
+RUNNING THE PROGRAM
+
+For Linux, the program will be installed in /usr/local/bin.  To run it, either
+have /usr/local/bin in the path or run:
+
+	/usr/local/bin/make_batch --path-to-mp3s=<path_to_mp3_files> --batch-file=<batch-file to output> [--overwrite --verbose]
+
+For Windows, the program will be installed in C:\utils\. To run it, either have
+/usr/local/bin in the path or run:
+	
+	C:\utils\make_batch.pl --path-to-mp3s=<path_to_mp3_files> --batch-file=<batch-file to output> [--overwrite --verbose]
+
+Under Windows 98SE, you may have to execute the program using something similar to:
+
+  c:\perl\bin\perl c:\utils\make_batch.pl --path-to-mp3s=<path_to_mp3_files> --batch-file=<batch-file to output> [--overwrite --verbose]
+
+When you are done, a batch file will be created that will:
+
+A) Create a Backup of the original MP3
+B) Convert the MP3 to WAV
+C) Convert the WAV to Stereo [if necessary]
+D) Convert the WAV to MP3
+E) Add the tag from the original MP3 to the new MP3 as closely as we can
+
+In windows, simple enter the name of the batch file to run it.  In Linux, 
+type 'source <batch-file.bat>'.
+
+
+CONVERSION SPECIFICATIONS
+
+Mono CBR MP3s are converted to High Quality Joint-Stereo CBR MP3s at the 
+lowest bitrate below or equal to twice the original bitrate
+
+Mono VBR MP3s are converted to High Quality Joint-Stereo CBR MP3s at the 
+lowest bitrate below or equal to twice the original average bitrate
+
+Stereo VBR MP3s are converted to High Quality Joint-Stereo CBR MP3s at 
+the original average bitrate
+
+
+THINGS TO DO
+
+Write a test procedure.
+  To do this, I need to learn how to write a test procedure.  Comments and 
+  input welcome.
+
+Allow the exclusion of Hidden files under Win32 Systems.
+  The code to do this is buggy and requires a full path.
+
+
+ERRORS
+  
+  This error is "normal" on Windows Systems when converting VBR MP3s:
+    Could Not Find test_stereo_vbr.1.wav
+
+COPYRIGHT AND LICENSE
+
+Copyright (C) 2003 Peregrine Hardware, Inc.
+  written by Kevin A. McGrail (kmcgrail@peregrinehw.com)
+
+This product is free for non-commercial use.  Commercial use requires an
+inexpensive license of $45 though exceptions are made for non-profit, 
+not-for-profit, people with good karma, or people who send us Legos.  
+
+Email sales@peregrinehw.com for more information.

@@ -1,0 +1,16 @@
+Makefile.PL
+make_batch.pl
+Changes
+MANIFEST
+INSTALL.WINDOWS.WALKTHROUGH
+README
+test.pl
+test/test_mono_64.mp3
+test/test_mono_vbr.mp3
+test/test_stereo_vbr.mp3
+contrib/windows/lame-3.93.1.zip
+contrib/windows/sox12172.zip
+contrib/windows/Nmake15.exe
+contrib/MP3-Info-1.01.tar.gz
+contrib/redhat-7.2-i686/notlame-3.92-i686.tar.gz
+contrib/redhat-7.2-i686/sox-12.17.1-4.i386.rpm
